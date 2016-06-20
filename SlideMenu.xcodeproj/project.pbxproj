@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22980FDD1D182A2D006BAA6C /* CGPointExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22980FDC1D182A2D006BAA6C /* CGPointExtension.swift */; };
 		E9F0F6A11D0596760077211D /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F0F6A01D0596760077211D /* LabelCell.swift */; };
 		E9F0F6A31D059C460077211D /* BackVCFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F0F6A21D059C460077211D /* BackVCFlowLayout.swift */; };
 		E9FD19CD1D046C1B0002FDA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD19CC1D046C1B0002FDA3 /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22980FDC1D182A2D006BAA6C /* CGPointExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPointExtension.swift; sourceTree = "<group>"; };
 		E9F0F6A01D0596760077211D /* LabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
 		E9F0F6A21D059C460077211D /* BackVCFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackVCFlowLayout.swift; sourceTree = "<group>"; };
 		E9FD19C91D046C1A0002FDA3 /* SlideMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlideMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +77,7 @@
 				E9FD19E41D04734B0002FDA3 /* ImageCell.swift */,
 				E9F0F6A01D0596760077211D /* LabelCell.swift */,
 				E9F0F6A21D059C460077211D /* BackVCFlowLayout.swift */,
+				22980FDC1D182A2D006BAA6C /* CGPointExtension.swift */,
 			);
 			path = SlideMenu;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 			files = (
 				E9FD19DF1D046C750002FDA3 /* MasterVC.swift in Sources */,
 				E9F0F6A31D059C460077211D /* BackVCFlowLayout.swift in Sources */,
+				22980FDD1D182A2D006BAA6C /* CGPointExtension.swift in Sources */,
 				E9FD19E31D046D500002FDA3 /* BackVC.swift in Sources */,
 				E9FD19CD1D046C1B0002FDA3 /* AppDelegate.swift in Sources */,
 				E9FD19E11D046D220002FDA3 /* FrontVC.swift in Sources */,
@@ -270,6 +274,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SlideMenu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iPrasad.SlideMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -281,6 +286,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SlideMenu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iPrasad.SlideMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";

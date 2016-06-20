@@ -46,24 +46,28 @@ class MasterVC: UIViewController {
     private var isViewShowingFrontView = true
     private var isFrontViewMovingLeft = false
     
+    private var buttonOffsetPoint: CGPoint?
+    
     // MARK: View Controller Life Cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let screenBounds = UIScreen.mainScreen().bounds
-        self.backVC = ViewControllers.getViewController(ViewControllers.BackVC) as BackVC
-        self.backVC?.backVCDelegate = self
-        self.backVC?.view.frame = screenBounds
-        self.addChildViewController(self.backVC!)
-        self.view.addSubview((self.backVC?.view)!)
-        self.backVC?.didMoveToParentViewController(self)
+        let backVC = ViewControllers.getViewController(ViewControllers.BackVC) as BackVC
+        backVC.backVCDelegate = self
+        backVC.view.frame = screenBounds
+        self.addChildViewController(backVC)
+        self.view.addSubview(backVC.view)
+        backVC.didMoveToParentViewController(self)
+        self.backVC = backVC
 
-        self.frontVC = ViewControllers.getViewController(ViewControllers.FrontVC) as FrontVC
-        self.frontVC?.frontVCDelegate = self
-        self.frontVC?.view.frame = screenBounds
-        self.addChildViewController(self.frontVC!)
-        self.view.addSubview((self.frontVC?.view)!)
-        self.frontVC?.didMoveToParentViewController(self)
+        let frontVC = ViewControllers.getViewController(ViewControllers.FrontVC) as FrontVC
+        frontVC.frontVCDelegate = self
+        frontVC.view.frame = screenBounds
+        self.addChildViewController(frontVC)
+        self.view.addSubview(frontVC.view)
+        frontVC.didMoveToParentViewController(self)
+        self.frontVC = frontVC
     }
 
     override func didReceiveMemoryWarning() {
@@ -169,13 +173,18 @@ extension MasterVC: FrontVCProtocol {
         
         self.thresholdPointsAt = 0
         self.isThresholdPointsCrossed = false
+        self.buttonOffsetPoint = nil
     }
     
     func frontVCMenuBtnDraggedWithSender(sender: AnyObject, event: UIEvent) {
         if let button = sender as? UIButton {
             if let touchSet = event.touchesForView(button) {
                 let touch = touchSet[touchSet.startIndex]
-                let point = touch.locationInView(self.view)
+                if self.buttonOffsetPoint == nil {
+                    self.buttonOffsetPoint = touch.locationInView(button.superview)
+                }
+                let pointInSuperView = touch.locationInView(self.view)
+                let point = CGPoint.subtractPoint(pointInSuperView, withPoint: self.buttonOffsetPoint)
                 
                 if self.isThresholdPointsCrossed {
                     if previousPointX != point.x {
